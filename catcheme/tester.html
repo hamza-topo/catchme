@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Material Design Bootstrap</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.min.css" rel="stylesheet">
+    <script src="../lib/anime.min.js"></script>
+</head>
+<body>
+
+	<div class="col-lg-7 col-xl-7 ml-xl-4 mb-4">
+		<h3 class="mb-3 font-weight-bold dark-grey-text">
+			<strong>catche me if you can !</strong>
+		</h3>
+		<div class="row  random-demo" id="ok">
+			<div class="col-md-3 " id="1">
+				<img class="imagethis el" src="hamza.jpg" onclick="hideThis(1)">
+			</div>
+			<div class="col-md-3 " id="2">
+				<img class="imagethis el " src="hamza.jpg"  onclick="hideThis(2)">
+			</div>
+			<div class="col-md-3 " id="3">
+
+				<img class="imagethis el" src="hamza.jpg" onclick="hideThis(3)">
+			</div>
+			<div class="col-md-3 " id="4">
+				<img class="imagethis el " src="hamza.jpg" onclick="hideThis(4)">
+			</div> 
+			<div class="col-md-3 " id="5">
+				<img class="imagethis el " src="hamza.jpg" onclick="hideThis(5)">
+			</div> 
+			<div class="col-md-3 " id="6">
+				<img class="imagethis el " src="hamza.jpg" onclick="hideThis(6)">
+			</div>    
+		</div>
+
+	</div>
+
+ <style >
+                    #box{
+                      height: 50px;
+                      width: 50px;
+                      border: 3px;
+                      border-radius: 50%;
+                  }
+
+                  .imagethis {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%; 
+                }
+ </style>
+     <script type="text/javascript">
+        
+ var score=0;
+ var total=12;
+anime({
+    targets:'#box',
+    duration:2000,
+    translateX:480,
+    loop: true
+  });
+
+function hideThis(x)
+{   
+  // var el=this.attr('id');
+
+  var audio = new Audio('jump.wav');
+  audio.play();
+  document.getElementById(x).remove();
+  score++;
+  var points=total-(2*score);
+  alert('super! il vous reste '+points+' ponits');
+}
+
+
+function randomValues() {
+  anime({
+    targets: '.random-demo .el',
+    translateX: function() {
+      return anime.random(0, 100);
+    },
+    translateY: function() {
+      return anime.random(0, 100);
+    },
+    easing: 'easeInOutQuad',
+    duration: 750,
+    complete: randomValues
+  });
+}
+
+randomValues();
+
+        
+    </script>
+<script src="assets/js/vendors/highlight.pack.js"></script>
+<script src="assets/js/vendors/beautify-html.js"></script>
+<script src="assets/js/documentation.js"></script>
+</body>
+</html>
